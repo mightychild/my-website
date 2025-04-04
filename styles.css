@@ -483,26 +483,6 @@ nav ul li a:hover {
     background-image: url('images/buffalo-logo.png');
 }
 
-.u-michigan {
-    background-image: url('images/michigan-logo.png');
-}
-
-.uc-davis {
-    background-image: url('images/ucdavis-logo.png');
-}
-
-.duke {
-    background-image: url('images/duke-logo.png');
-}
-
-.uc-santa-cruz {
-    background-image: url('images/ucsc-logo.png');
-}
-
-.rice {
-    background-image: url('images/rice-logo.png');
-}
-
 .certification-card h3 {
     font-size: 1.2rem;
     color: var(--dark-color);
@@ -618,22 +598,58 @@ footer {
     color: var(--primary-color);
 }
 
-/* Responsive Design */
+/* Back to top button */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none;
+    z-index: 99;
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
+    /* Base improvements */
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+    
+    body {
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Larger tap targets */
+    a, button, input, .btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    /* Header */
     nav ul {
-        display: none;
-        position: absolute;
-        top: 70px;
+        position: fixed;
+        top: 60px;
         left: 0;
         right: 0;
-        background-color: white;
+        background: white;
         flex-direction: column;
         padding: 20px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        z-index: 999;
     }
     
     nav ul.show {
-        display: flex;
+        transform: translateY(0);
     }
     
     nav ul li {
@@ -642,50 +658,116 @@ footer {
     
     .mobile-menu {
         display: block;
+        font-size: 1.8rem;
     }
     
+    /* Hero section */
     .hero {
-        padding: 120px 0 80px;
-        text-align: center;
+        padding: 120px 0 60px;
     }
     
-    .hero-content {
-        margin-bottom: 50px;
+    .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+    
+    .hero h2 {
+        font-size: 1.4rem;
     }
     
     .hero-buttons {
-        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
     }
     
+    .code-snippet {
+        font-size: 0.8rem;
+        padding: 15px;
+        margin-top: 30px;
+    }
+    
+    /* Grid layouts */
     .about-grid,
     .contact-grid {
         grid-template-columns: 1fr;
     }
     
+    /* Form inputs */
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+    
+    .contact-form button[type="submit"] {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    /* Loading spinner */
+    .spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    
+    /* Error message */
+    .mobile-error-alert {
+        background: #ff4444;
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        animation: fadeIn 0.3s ease;
+    }
+    
+    /* Back to top button */
+    #backToTop {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Timeline adjustments */
     .timeline::before {
         left: 30px;
     }
     
+    .timeline-content {
+        width: calc(100% - 90px);
+        margin-left: 70px !important;
+    }
+    
     .timeline-date {
-        left: 30px;
-        margin-left: 0;
+        left: 0;
+        right: auto;
         text-align: left;
         width: auto;
         max-width: 120px;
     }
-    
-    .timeline-content {
-        width: calc(100% - 80px);
-        margin-left: 80px !important;
-    }
-    
-    .timeline-content::after {
-        left: -10px !important;
-        right: auto !important;
-    }
 }
 
-/* Animation */
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
