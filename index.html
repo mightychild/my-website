@@ -2,17 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ibrahim Bashir Ilyasu | Blockchain & Full-Stack Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="apple-touch-icon" href="touch-icon.png">
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">Mightychild</div>
-            <nav aria-label="Main navigation">
+            <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -30,26 +29,25 @@
         </div>
     </header>
 
-    <main style="touch-action: pan-y;">
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Ibrahim Bashir Ilyasu</h1>
-                    <h2>Blockchain & Full-Stack Developer</h2>
-                    <p class="tagline">Building secure, scalable Web3 solutions for decentralized future</p>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">Let's Connect</a>
-                        <a href="#certifications" class="btn btn-secondary">View Certifications</a>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                    </div>
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Ibrahim Bashir Ilyasu</h1>
+                <h2>Blockchain & Full-Stack Developer</h2>
+                <p class="tagline">Building secure, scalable Web3 solutions for decentralized future</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Let's Connect</a>
+                    <a href="#certifications" class="btn btn-secondary">View Certifications</a>
                 </div>
-                <div class="hero-image">
-                    <div class="code-snippet">
-                        <pre><code class="solidity">// Sample Solidity code
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="code-snippet">
+                    <pre><code class="solidity">// Sample Solidity code
 contract Mightychild {
     address public owner;
     mapping(address => uint) public balances;
@@ -64,274 +62,330 @@ contract Mightychild {
         balances[to] += amount;
     }
 }</code></pre>
-                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="about" class="about">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>I'm Ibrahim Bashir Ilyasu (Mightychild), a passionate Blockchain and Full-Stack Developer with expertise in building decentralized applications and Web3 solutions. My journey in technology began with a curiosity for problem-solving, which evolved into a deep specialization in blockchain development.</p>
-                        <p>With certifications from six world-class universities through Coursera, I've developed a strong foundation in both theoretical concepts and practical implementations. My technical skills span across Solidity, Ethereum, DeFi protocols, and full-stack JavaScript development.</p>
-                        <div class="personal-info">
-                            <div class="info-item">
-                                <span class="info-label">Location:</span>
-                                <span>Kano, Nigeria</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">Email:</span>
-                                <span>ibrahimbashirilyasu@gmail.com</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-skills">
-                        <div class="skill-tag">Solidity</div>
-                        <div class="skill-tag">Web3.js</div>
-                        <div class="skill-tag">Ethereum</div>
-                        <div class="skill-tag">React.js</div>
-                        <div class="skill-tag">Node.js</div>
-                        <div class="skill-tag">Python</div>
-                        <div class="skill-tag">DeFi</div>
-                        <div class="skill-tag">Smart Contracts</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="expertise" class="expertise">
-            <div class="container">
-                <h2 class="section-title">Technical Expertise</h2>
-                <div class="expertise-grid">
-                    <div class="expertise-card">
-                        <div class="expertise-icon">
-                            <i class="fab fa-ethereum"></i>
-                        </div>
-                        <h3>Blockchain Development</h3>
-                        <ul>
-                            <li>Smart Contracts (Solidity, Vyper)</li>
-                            <li>Ethereum & EVM-based Chains</li>
-                            <li>Web3.js, Ethers.js</li>
-                            <li>DeFi protocols</li>
-                            <li>NFT & Token Standards</li>
-                        </ul>
-                    </div>
-                    <div class="expertise-card">
-                        <div class="expertise-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Full-Stack Development</h3>
-                        <ul>
-                            <li>React.js, Next.js</li>
-                            <li>Node.js, Express.js</li>
-                            <li>Django</li>
-                            <li>MongoDB, PostgreSQL</li>
-                            <li>HTML/CSS</li>
-                        </ul>
-                    </div>
-                    <div class="expertise-card">
-                        <div class="expertise-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Security & DevOps</h3>
-                        <ul>
-                            <li>Smart Contract Audits</li>
-                            <li>Security Best Practices</li>
-                            <li>Docker</li>
-                            <li>Git/GitHub</li>
-                            <li>CI/CD Pipelines</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="experience">
-            <div class="container">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2023 -- Present</div>
-                        <div class="timeline-content">
-                            <h3>Blockchain & Full-Stack Developer | Freelance</h3>
-                            <ul>
-                                <li>Developed & deployed smart contracts for DeFi applications, tokenized assets, and NFT projects</li>
-                                <li>Built decentralized applications (DApps) with React.js, Next.js, and Web3.js</li>
-                                <li>Conducted security audits on smart contracts, identifying vulnerabilities</li>
-                                <li>Integrated Solana and Ethereum protocols for seamless blockchain interactions</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Oct 2022 -- Nov 2022</div>
-                        <div class="timeline-content">
-                            <h3>Solidity Developer Intern | Remote</h3>
-                            <ul>
-                                <li>Designed and implemented ERC-20 tokens for blockchain projects</li>
-                                <li>Developed and tested smart contracts, ensuring security and efficiency</li>
-                                <li>Created technical documentation on smart contract development</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>ApprovalGuard</h3>
-                            <div class="project-links">
-                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <p>A DeFi security platform preventing malicious token approval exploits</p>
-                        <div class="project-tech">
-                            <span>Solidity</span>
-                            <span>React</span>
-                            <span>Web3.js</span>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>Tarif Finance</h3>
-                            <div class="project-links">
-                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <p>A Web3 gateway to decentralized financial freedom</p>
-                        <div class="project-tech">
-                            <span>Next.js</span>
-                            <span>Ethers.js</span>
-                            <span>Hardhat</span>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>True Persona</h3>
-                            <div class="project-links">
-                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <p>A decentralized identity protocol using SBTs & ZKPs for Sybil resistance</p>
-                        <div class="project-tech">
-                            <span>Solana</span>
-                            <span>Anchor</span>
-                            <span>ZKPs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="certifications" class="certifications">
-            <div class="container">
-                <h2 class="section-title">Certifications</h2>
-                <div class="certifications-grid">
-                    <div class="certification-card">
-                        <div class="certification-header">
-                            <div class="university-logo u-buffalo"></div>
-                            <h3>Blockchain Specialization</h3>
-                        </div>
-                        <p class="university-name">University at Buffalo (Coursera)</p>
-                        <p class="cert-date">2022</p>
-                        <div class="certification-footer">
-                            <a href="#" target="_blank" class="btn btn-verify">
-                                Verify <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="certification-card">
-                        <div class="certification-header">
-                            <div class="university-logo u-michigan"></div>
-                            <h3>Python 3 Programming</h3>
-                        </div>
-                        <p class="university-name">University of Michigan (Coursera)</p>
-                        <p class="cert-date">2022</p>
-                        <div class="certification-footer">
-                            <a href="#" target="_blank" class="btn btn-verify">
-                                Verify <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="certification-card">
-                        <div class="certification-header">
-                            <div class="university-logo uc-davis"></div>
-                            <h3>JavaScript for Beginners</h3>
-                        </div>
-                        <p class="university-name">University of California Davis (Coursera)</p>
-                        <p class="cert-date">2022</p>
-                        <div class="certification-footer">
-                            <a href="#" target="_blank" class="btn btn-verify">
-                                Verify <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Contact Information</h3>
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm Ibrahim Bashir Ilyasu (Mightychild), a passionate Blockchain and Full-Stack Developer with expertise in building decentralized applications and Web3 solutions. My journey in technology began with a curiosity for problem-solving, which evolved into a deep specialization in blockchain development.</p>
+                    
+                    <p>With certifications from six world-class universities through Coursera, I've developed a strong foundation in both theoretical concepts and practical implementations. My technical skills span across Solidity, Ethereum, DeFi protocols, and full-stack JavaScript development.</p>
+                    
+                    <p>What sets me apart is my ability to bridge the gap between complex blockchain concepts and user-friendly applications. I've contributed to several innovative projects including ApprovalGuard (a DeFi security platform) and True Persona (a decentralized identity protocol), where I implemented smart contracts and designed secure architectures.</p>
+                    
+                    <p>Beyond coding, I'm passionate about blockchain education and regularly contribute to open-source projects. My agricultural background gives me a unique perspective on applying blockchain technology to solve real-world problems in emerging markets.</p>
+                    
+                    <p>Currently pursuing my Bachelor's degree while working as a freelance developer, I'm constantly expanding my skills to stay at the forefront of blockchain innovation.</p>
+                    
+                    <div class="personal-info">
                         <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="info-label">Location:</span>
                             <span>Kano, Nigeria</span>
                         </div>
                         <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+234 903 137 0166</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
+                            <span class="info-label">Email:</span>
                             <span>ibrahimbashirilyasu@gmail.com</span>
                         </div>
-                        <div class="social-links">
-                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <div class="info-item">
+                            <span class="info-label">Education:</span>
+                            <span>B.Agric (Animal Science), Federal University Dutse</span>
                         </div>
                     </div>
-                    <form class="contact-form" action="https://formsubmit.co/ajax/ibrahimbashirilyasu@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="New Contact Form Submission">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-                        <input type="hidden" name="_captcha" value="false">
-                        
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="subject" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+                </div>
+                <div class="about-skills">
+                    <div class="skill-tag">Solidity</div>
+                    <div class="skill-tag">Web3.js</div>
+                    <div class="skill-tag">Ethereum</div>
+                    <div class="skill-tag">React.js</div>
+                    <div class="skill-tag">Node.js</div>
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">DeFi</div>
+                    <div class="skill-tag">Smart Contracts</div>
+                    <div class="skill-tag">Truffle</div>
+                    <div class="skill-tag">Hardhat</div>
+                    <div class="skill-tag">NFT Standards</div>
+                    <div class="skill-tag">Docker</div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <button id="backToTop" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <section id="expertise" class="expertise">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fab fa-ethereum"></i>
+                    </div>
+                    <h3>Blockchain Development</h3>
+                    <ul>
+                        <li>Smart Contracts (Solidity, Vyper)</li>
+                        <li>Ethereum & EVM-based Chains</li>
+                        <li>Web3.js, Ethers.js</li>
+                        <li>DeFi protocols</li>
+                        <li>NFT & Token Standards</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Full-Stack Development</h3>
+                    <ul>
+                        <li>React.js, Next.js</li>
+                        <li>Node.js, Express.js</li>
+                        <li>Django</li>
+                        <li>MongoDB, PostgreSQL</li>
+                        <li>HTML/CSS</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Security & DevOps</h3>
+                    <ul>
+                        <li>Smart Contract Audits</li>
+                        <li>Security Best Practices</li>
+                        <li>Docker</li>
+                        <li>Git/GitHub</li>
+                        <li>CI/CD Pipelines</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 -- Present</div>
+                    <div class="timeline-content">
+                        <h3>Blockchain & Full-Stack Developer | Freelance</h3>
+                        <ul>
+                            <li>Developed & deployed smart contracts for DeFi applications, tokenized assets, and NFT projects</li>
+                            <li>Built decentralized applications (DApps) with React.js, Next.js, and Web3.js</li>
+                            <li>Conducted security audits on smart contracts, identifying vulnerabilities</li>
+                            <li>Integrated Solana and Ethereum protocols for seamless blockchain interactions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 2022 -- Nov 2022</div>
+                    <div class="timeline-content">
+                        <h3>Solidity Developer Intern | Remote</h3>
+                        <ul>
+                            <li>Designed and implemented ERC-20 tokens for blockchain projects</li>
+                            <li>Developed and tested smart contracts, ensuring security and efficiency</li>
+                            <li>Created technical documentation on smart contract development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>ApprovalGuard</h3>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <p>A DeFi security platform preventing malicious token approval exploits</p>
+                    <div class="project-tech">
+                        <span>Solidity</span>
+                        <span>React</span>
+                        <span>Web3.js</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Tarif Finance</h3>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <p>A Web3 gateway to decentralized financial freedom</p>
+                    <div class="project-tech">
+                        <span>Next.js</span>
+                        <span>Ethers.js</span>
+                        <span>Hardhat</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>True Persona</h3>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <p>A decentralized identity protocol using SBTs & ZKPs for Sybil resistance</p>
+                    <div class="project-tech">
+                        <span>Solana</span>
+                        <span>Anchor</span>
+                        <span>ZKPs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-title">University Certifications</h2>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <div class="university-logo u-buffalo"></div>
+                        <h3>Blockchain Specialization</h3>
+                    </div>
+                    <p class="university-name">University at Buffalo</p>
+                    <p class="cert-date">2022 | Coursera</p>
+                    <div class="certification-footer">
+                        <a href="YOUR_LINK_HERE" target="_blank" class="btn btn-verify">
+                            Verify <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <span class="credential-id">Credential ID: XXXX-XXXX-XXXX</span>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <div class="university-logo u-michigan"></div>
+                        <h3>Python 3 Programming</h3>
+                    </div>
+                    <p class="university-name">University of Michigan</p>
+                    <p class="cert-date">2022 | Coursera</p>
+                    <div class="certification-footer">
+                        <a href="YOUR_LINK_HERE" target="_blank" class="btn btn-verify">
+                            Verify <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <span class="credential-id">Credential ID: XXXX-XXXX-XXXX</span>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <div class="university-logo uc-davis"></div>
+                        <h3>JavaScript for Beginners</h3>
+                    </div>
+                    <p class="university-name">University of California Davis</p>
+                    <p class="cert-date">2022 | Coursera</p>
+                    <div class="certification-footer">
+                        <a href="YOUR_LINK_HERE" target="_blank" class="btn btn-verify">
+                            Verify <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <span class="credential-id">Credential ID: XXXX-XXXX-XXXX</span>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <div class="university-logo duke"></div>
+                        <h3>Java Programming</h3>
+                    </div>
+                    <p class="university-name">Duke University</p>
+                    <p class="cert-date">2022 | Coursera</p>
+                    <div class="certification-footer">
+                        <a href="YOUR_LINK_HERE" target="_blank" class="btn btn-verify">
+                            Verify <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <span class="credential-id">Credential ID: XXXX-XXXX-XXXX</span>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <div class="university-logo uc-santa-cruz"></div>
+                        <h3>C & C++ Programming</h3>
+                    </div>
+                    <p class="university-name">UC Santa Cruz</p>
+                    <p class="cert-date">2022 | Coursera</p>
+                    <div class="certification-footer">
+                        <a href="YOUR_LINK_HERE" target="_blank" class="btn btn-verify">
+                            Verify <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <span class="credential-id">Credential ID: XXXX-XXXX-XXXX</span>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <div class="university-logo rice"></div>
+                        <h3>Scripting in Python</h3>
+                    </div>
+                    <p class="university-name">Rice University</p>
+                    <p class="cert-date">2022 | Coursera</p>
+                    <div class="certification-footer">
+                        <a href="YOUR_LINK_HERE" target="_blank" class="btn btn-verify">
+                            Verify <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <span class="credential-id">Credential ID: XXXX-XXXX-XXXX</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kano, Nigeria</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+234 903 137 0166</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>ibrahimbashirilyasu@gmail.com</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
