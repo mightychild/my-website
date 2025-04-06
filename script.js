@@ -44,111 +44,131 @@ document.addEventListener('DOMContentLoaded', function() {
     // Back to top button
     const backToTopBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', function() {
-        backToTopBtn.style.display = window.pageYOffset > 300 ? 'block' : 'none';
+        backToTopBtnservice_ddcxwqs.style.display = window.pageYOffset > 300 ? 'block' : 'none';
     });
     
     backToTopBtn.addEventListener('click', function() {
         window.scrollTo({top: 0, behavior: 'smooth'});
     });
     
-    // Form submission
+    // Add this to your existing script.js
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        const handleFormSubmit = async (e) => {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const form = e.target;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerHTML;
-            
-            // Loading state
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `
-                <span class="spinner" aria-hidden="true"></span>
-                <span class="sr-only">Sending...</span>
-            `;
-            
-            try {
-                const formData = new FormData(form);
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (!response.ok) throw new Error('Network response was not ok');
-                
-                // Success feedback
-                submitBtn.innerHTML = `
-                    <i class="fas fa-check-circle" aria-hidden="true"></i>
-                    <span class="sr-only">Success!</span> Sent
-                `;
-                
-                // Haptic feedback on mobile
-                if ('vibrate' in navigator) {
-                    navigator.vibrate([50, 50, 50]);
-                }
-                
-                form.reset();
-                
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.disabled = false;
-                }, 3000);
-                
-            } catch (error) {
-                console.error('Submission error:', error);
-                
-                // Error feedback
-                submitBtn.innerHTML = `
-                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                    <span class="sr-only">Error!</span> Try Again
-                `;
-                
-                // Mobile error message
-                if (window.innerWidth <= 768) {
-                    const errorAlert = document.createElement('div');
-                    errorAlert.className = 'mobile-error-alert';
-                    errorAlert.textContent = 'Failed to send. Please check your connection.';
-                    form.prepend(errorAlert);
-                    
-                    setTimeout(() => {
-                        errorAlert.remove();
-                    }, 5000);
-                }
-                
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.disabled = false;
-                }, 2000);
-            }
-        };
-        
-        contactForm.addEventListener('submit', handleFormSubmit);
-        
-        // Mobile touch validation
-        if ('ontouchstart' in window) {
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            submitBtn.addEventListener('touchend', function(e) {
-                if (!contactForm.checkValidity()) {
-                    e.preventDefault();
-                    const invalidFields = contactForm.querySelectorAll(':invalid');
-                    invalidFields.forEach(field => {
-                        field.style.borderColor = '#ff4444';
-                        setTimeout(() => {
-                            field.style.borderColor = '';
-                        }, 2000);
-                    });
-                    
-                    if ('vibrate' in navigator) {
-                        navigator.vibrate(200);
-                    }
-                }
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            })
+            .then(function(response) {
+                alert('Message sent successfully!');
+                contactForm.reset();
+            }, function(error) {
+                alert('Failed to send message. Please try again.');
             });
-        }
+        });
     }
+    // // Form submission
+    // const contactForm = document.querySelector('.contact-form');
+    // if (contactForm) {
+    //     const handleFormSubmit = async (e) => {
+    //         e.preventDefault();
+            
+    //         const form = e.target;
+    //         const submitBtn = form.querySelector('button[type="submit"]');
+    //         const originalBtnText = submitBtn.innerHTML;
+            
+    //         // Loading state
+    //         submitBtn.disabled = true;
+    //         submitBtn.innerHTML = `
+    //             <span class="spinner" aria-hidden="true"></span>
+    //             <span class="sr-only">Sending...</span>
+    //         `;
+            
+    //         try {
+    //             const formData = new FormData(form);
+    //             const response = await fetch(form.action, {
+    //                 method: 'POST',
+    //                 body: formData,
+    //                 headers: {
+    //                     'Accept': 'application/json'
+    //                 }
+    //             });
+                
+    //             if (!response.ok) throw new Error('Network response was not ok');
+                
+    //             // Success feedback
+    //             submitBtn.innerHTML = `
+    //                 <i class="fas fa-check-circle" aria-hidden="true"></i>
+    //                 <span class="sr-only">Success!</span> Sent
+    //             `;
+                
+    //             // Haptic feedback on mobile
+    //             if ('vibrate' in navigator) {
+    //                 navigator.vibrate([50, 50, 50]);
+    //             }
+                
+    //             form.reset();
+                
+    //             setTimeout(() => {
+    //                 submitBtn.innerHTML = originalBtnText;
+    //                 submitBtn.disabled = false;
+    //             }, 3000);
+                
+    //         } catch (error) {
+    //             console.error('Submission error:', error);
+                
+    //             // Error feedback
+    //             submitBtn.innerHTML = `
+    //                 <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+    //                 <span class="sr-only">Error!</span> Try Again
+    //             `;
+                
+    //             // Mobile error message
+    //             if (window.innerWidth <= 768) {
+    //                 const errorAlert = document.createElement('div');
+    //                 errorAlert.className = 'mobile-error-alert';
+    //                 errorAlert.textContent = 'Failed to send. Please check your connection.';
+    //                 form.prepend(errorAlert);
+                    
+    //                 setTimeout(() => {
+    //                     errorAlert.remove();
+    //                 }, 5000);
+    //             }
+                
+    //             setTimeout(() => {
+    //                 submitBtn.innerHTML = originalBtnText;
+    //                 submitBtn.disabled = false;
+    //             }, 2000);
+    //         }
+    //     };
+        
+    //     contactForm.addEventListener('submit', handleFormSubmit);
+        
+    //     // Mobile touch validation
+    //     if ('ontouchstart' in window) {
+    //         const submitBtn = contactForm.querySelector('button[type="submit"]');
+    //         submitBtn.addEventListener('touchend', function(e) {
+    //             if (!contactForm.checkValidity()) {
+    //                 e.preventDefault();
+    //                 const invalidFields = contactForm.querySelectorAll(':invalid');
+    //                 invalidFields.forEach(field => {
+    //                     field.style.borderColor = '#ff4444';
+    //                     setTimeout(() => {
+    //                         field.style.borderColor = '';
+    //                     }, 2000);
+    //                 });
+                    
+    //                 if ('vibrate' in navigator) {
+    //                     navigator.vibrate(200);
+    //                 }
+    //             }
+    //         });
+    //     }
+    // }
     
     // Scroll animations
     const animateOnScroll = function() {
