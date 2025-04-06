@@ -368,13 +368,13 @@ contract Mightychild {
                         <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
                     </div>
                 </div>
-                <form class="contact-form" action="https://formsubmit.co/ibrahimbashirilyasu@gmail.com" method="POST">
+                <form class="contact-form">
                     
                     <!-- Add hidden fields for customization -->
-                    <input type="hidden" name="_subject" value="New Contact Form Submission">
+                    <!-- <input type="hidden" name="_subject" value="New Contact Form Submission">
                     <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-                                    
+                    <input type="hidden" name="_next" value="https://mightychid.vercel.app/">
+                                     -->
                     <div class="form-group">
                         <input type="text" placeholder="Your Name" required>
                     </div>
@@ -402,7 +402,12 @@ contract Mightychild {
             </div> -->
         </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("service_ddcxwqs"); // Initialize with your EmailJS user ID
+        })();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
