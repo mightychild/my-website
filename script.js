@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+            emailjs.send("service_ddcxwqs","template_pno9n5n", {
                 from_name: document.getElementById('name').value,
                 from_email: document.getElementById('email').value,
                 subject: document.getElementById('subject').value,
