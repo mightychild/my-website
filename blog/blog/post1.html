@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Solidity Best Practices | Mightychild</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/blog.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="../../images/ibrahim.jpeg" alt="Ibrahim Bashir Ilyasu" class="logo-image">
+                <span>Mightychild</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#newsletter" class="btn-subscribe">Subscribe</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="blog-post">
+        <article>
+            <div class="container">
+                <div class="post-header">
+                    <span class="post-category">Solidity</span>
+                    <h1>10 Solidity Best Practices for Secure Smart Contracts</h1>
+                    <div class="post-meta">
+                        <span class="post-date">June 15, 2023</span>
+                        <span class="post-read-time">8 min read</span>
+                    </div>
+                    <div class="post-meta-author">
+                        <div class="author-avatar">
+                            <img src="../../images/ibrahim.jpeg" alt="Ibrahim Bashir Ilyasu">
+                        </div>
+                        <div class="author-info">
+                            <h4>Ibrahim Bashir Ilyasu</h4>
+                            <p>Blockchain Developer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-content">
+                    <img src="../assets/images/solidity-tips.jpg" alt="Solidity Code">
+                    
+                    <p>Writing secure smart contracts requires careful consideration of many factors. After auditing dozens of contracts, I've compiled these essential best practices that every Solidity developer should follow.</p>
+                    
+                    <h2>1. Use the Checks-Effects-Interactions Pattern</h2>
+                    <p>This pattern prevents reentrancy attacks by ensuring you:</p>
+                    <ol>
+                        <li>Check all conditions first</li>
+                        <li>Update contract state</li>
+                        <li>Finally interact with other contracts</li>
+                    </ol>
+                    
+                    <pre><code class="solidity">// Good practice
+function withdraw() public {
+    // Checks
+    require(balances[msg.sender] > 0);
+    
+    // Effects
+    uint amount = balances[msg.sender];
+    balances[msg.sender] = 0;
+    
+    // Interactions
+    (bool success, ) = msg.sender.call{value: amount}("");
+    require(success);
+}</code></pre>
+
+                    <!-- Additional content sections would go here -->
+                    
+                    <div class="post-tags">
+                        <span>Tags:</span>
+                        <a href="#">Solidity</a>
+                        <a href="#">Smart Contracts</a>
+                        <a href="#">Security</a>
+                    </div>
+                </div>
+
+                <div class="post-navigation">
+                    <a href="#" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Post</a>
+                    <a href="#" class="btn btn-secondary">Next Post <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo">
+                        <img src="../../images/ibrahim.jpeg" alt="Ibrahim Bashir Ilyasu" class="logo-image">
+                        <span>Mightychild</span>
+                    </a>
+                    <p>Exploring the decentralized future through code, tutorials, and blockchain research.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://medium.com/yourprofile" target="_blank"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Mightychild. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
