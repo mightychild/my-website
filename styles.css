@@ -479,8 +479,34 @@ nav ul li a:hover {
     background-repeat: no-repeat;
 }
 
+.certification-header .university-logo img {
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    object-fit: contain;
+}
+
+.uc-davis {
+    background-image: url('images/UC-Davis.png');
+}
+
+.duke {
+    background-image: url('images/Duke-Uni.png');
+}
+
+.uc-santa-cruz {
+    background-image: url('images/ucsc.png');
+}
+
+.rice {
+    background-image: url('images/rice-uni.png');
+}
+
+.u-michigan {
+    background-image: url('images/uni-michigan.png');
+}
+
 .u-buffalo {
-    background-image: url('images/buffalo-logo.png');
+    background-image: url('images/uni-bufallo.png');
 }
 
 .certification-card h3 {
