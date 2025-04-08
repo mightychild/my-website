@@ -3,133 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10 Solidity Best Practices | Mightychild</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="./assets/css/blog.css">
+    <title>10 Solidity Best Practices for Secure Smart Contracts</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .good {
+            border-left: 4px solid #2ecc71;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+        .bad {
+            border-left: 4px solid #e74c3c;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+        .why {
+            background-color: #eaf7fd;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .tags {
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        .tags span {
+            background-color: #e0e0e0;
+            padding: 3px 8px;
+            border-radius: 3px;
+            margin-right: 5px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <a href="index.html" class="logo">
-                <img src="../images/ibrahim.jpeg" alt="Ibrahim Bashir Ilyasu" class="logo-image">
-                <span>Mightychild</span>
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#newsletter" class="btn-subscribe">Subscribe</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </header>
-
-    <main class="blog-post">
-        <article>
-            <div class="container">
-                <div class="post-header">
-                    <span class="post-category">Solidity</span>
-                    <h1>10 Solidity Best Practices for Secure Smart Contracts</h1>
-                    <div class="post-meta">
-                        <span class="post-date">June 15, 2023</span>
-                        <span class="post-read-time">8 min read</span>
-                    </div>
-                    <div class="post-meta-author">
-                        <div class="author-avatar">
-                            <img src="../images/ibrahim.jpeg" alt="Ibrahim Bashir Ilyasu">
-                        </div>
-                        <div class="author-info">
-                            <h4>Ibrahim Bashir Ilyasu</h4>
-                            <p>Blockchain Developer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="post-content">
-                    <img src="./assets/images/solidity-tips.jpg" alt="Solidity Code">
-                    
-                    <p>Writing secure smart contracts requires careful consideration of many factors. After auditing dozens of contracts, I've compiled these essential best practices that every Solidity developer should follow.</p>
-                    
-                    <h2>1. Use the Checks-Effects-Interactions Pattern</h2>
-                    <p>This pattern prevents reentrancy attacks by ensuring you:</p>
-                    <ol>
-                        <li>Check all conditions first</li>
-                        <li>Update contract state</li>
-                        <li>Finally interact with other contracts</li>
-                    </ol>
-                    
-                    <pre><code class="solidity">// Good practice
-function withdraw() public {
-    // Checks
-    require(balances[msg.sender] > 0);
+    <h1>10 Solidity Best Practices for Secure Smart Contracts</h1>
     
-    // Effects
-    uint amount = balances[msg.sender];
-    balances[msg.sender] = 0;
+    <p>Smart contracts power decentralized applications (dApps), DeFi protocols, and blockchain-based systems. However, vulnerabilities in Solidity code can lead to catastrophic losses—millions have been stolen due to simple oversights.</p>
     
-    // Interactions
+    <p>To help you write secure, gas-efficient, and production-ready smart contracts, here are <strong>10 essential Solidity best practices</strong> every developer should follow.</p>
+    
+    <hr>
+    
+    <h2>1. Use the Latest Solidity Version</h2>
+    <p>Always compile with the most recent stable version of Solidity (e.g., <code>0.8.x</code>). Newer versions include security fixes, gas optimizations, and improved syntax.</p>
+    
+    <pre><code>pragma solidity ^0.8.0; // Use the latest stable version</code></pre>
+    
+    <div class="why">
+        <strong>Why?</strong> Older versions (e.g., <code>0.4.x</code> or <code>0.6.x</code>) may contain unchecked math operations or other vulnerabilities.
+    </div>
+    
+    <h2>2. Enable Compiler Warnings & Use Static Analysis Tools</h2>
+    <p>Configure <code>solc</code> to treat warnings as errors:</p>
+    
+    <pre><code>{
+  "compilerOptions": {
+    "strict": true
+  }
+}</code></pre>
+    
+    <p>Additionally, use tools like:</p>
+    <ul>
+        <li><strong>Slither</strong> (static analysis)</li>
+        <li><strong>MythX</strong> (security analysis)</li>
+        <li><strong>Foundry's <code>forge inspect</code></strong> (gas reports)</li>
+    </ul>
+    
+    <h2>3. Follow the Checks-Effects-Interactions Pattern</h2>
+    <p>Avoid reentrancy attacks by:</p>
+    <ol>
+        <li><strong>Checks</strong>: Validate conditions (e.g., balances, permissions).</li>
+        <li><strong>Effects</strong>: Update contract state.</li>
+        <li><strong>Interactions</strong>: Call external contracts.</li>
+    </ol>
+    
+    <div class="good">
+        <strong>✅ Good:</strong>
+        <pre><code>function withdraw(uint amount) external {
+    require(balances[msg.sender] >= amount); // Check
+    balances[msg.sender] -= amount;         // Effect
+    (bool success, ) = msg.sender.call{value: amount}(""); // Interaction
+    require(success);
+}</code></pre>
+    </div>
+    
+    <div class="bad">
+        <strong>❌ Bad:</strong>
+        <p>Calling external contracts before state changes can lead to reentrancy.</p>
+    </div>
+    
+    <h2>4. Use <code>require()</code>, <code>assert()</code>, and <code>revert()</code> Properly</h2>
+    <ul>
+        <li><strong><code>require(condition, "error")</code></strong> – Validate inputs & conditions (refunds gas).</li>
+        <li><strong><code>assert(condition)</code></strong> – Check invariants (consumes all gas; use for internal errors).</li>
+        <li><strong><code>revert("error")</code></strong> – Explicitly revert with a message.</li>
+    </ul>
+    
+    <h2>5. Avoid <code>tx.origin</code> for Authorization</h2>
+    <div class="bad">
+        <strong>❌ Dangerous:</strong>
+        <pre><code>if (tx.origin == owner) { ... } // Vulnerable to phishing</code></pre>
+    </div>
+    
+    <div class="good">
+        <strong>✅ Secure Alternative:</strong>
+        <pre><code>if (msg.sender == owner) { ... } // Use msg.sender instead</code></pre>
+    </div>
+    
+    <p><code>tx.origin</code> can be manipulated by malicious contracts in a call chain.</p>
+    
+    <h2>6. Use OpenZeppelin Contracts for Security</h2>
+    <p>Leverage battle-tested libraries like:</p>
+    <ul>
+        <li><strong><code>Ownable</code></strong> – For access control.</li>
+        <li><strong><code>ReentrancyGuard</code></strong> – Prevents reentrancy.</li>
+        <li><strong><code>SafeMath</code></strong> (in &lt;0.8.0) – Prevents overflows.</li>
+    </ul>
+    
+    <p>Example:</p>
+    <pre><code>import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract MyContract is Ownable {
+    function adminAction() external onlyOwner { ... }
+}</code></pre>
+    
+    <h2>7. Optimize Gas with Fixed-Size Types & Packing</h2>
+    <p>Use <code>uint256</code> over <code>uint8</code> (EVM operates in 256-bit slots). Pack variables tightly:</p>
+    
+    <pre><code>struct GasOptimized {
+    uint128 a; // Packed with b in same slot
+    uint128 b;
+    uint256 c; // New storage slot
+}</code></pre>
+    
+    <h2>8. Limit External Calls & Use Pull Over Push</h2>
+    <p><strong>Push payments</strong> (sending ETH directly) can fail and lock funds. Instead, use <strong>pull payments</strong>:</p>
+    
+    <pre><code>mapping(address => uint) public pendingWithdrawals;
+
+function withdraw() external {
+    uint amount = pendingWithdrawals[msg.sender];
+    pendingWithdrawals[msg.sender] = 0;
     (bool success, ) = msg.sender.call{value: amount}("");
     require(success);
 }</code></pre>
-
-                    <!-- Additional content sections would go here -->
-                    
-                    <div class="post-tags">
-                        <span>Tags:</span>
-                        <a href="#">Solidity</a>
-                        <a href="#">Smart Contracts</a>
-                        <a href="#">Security</a>
-                    </div>
-                </div>
-
-                <div class="post-navigation">
-                    <a href="#" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Post</a>
-                    <a href="#" class="btn btn-secondary">Next Post <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </article>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <a href="index.html" class="logo">
-                        <img src="../images/ibrahim.jpeg" alt="Ibrahim Bashir Ilyasu" class="logo-image">
-                        <span>Mightychild</span>
-                    </a>
-                    <p>Exploring the decentralized future through code, tutorials, and blockchain research.</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h3>Connect</h3>
-                    <div class="social-links">
-                        <a href="https://github.com/mightychild" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://twitter.com/web3sinister" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://medium.com/yourprofile" target="_blank"><i class="fab fa-medium"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Ibrahim Bashir Ilyasu. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="./assets/js/script.js"></script>
+    
+    <h2>9. Protect Against Frontrunning</h2>
+    <ul>
+        <li>Use commit-reveal schemes for sensitive actions.</li>
+        <li>Avoid revealing inputs in transactions (e.g., in auctions).</li>
+    </ul>
+    
+    <h2>10. Write & Run Tests</h2>
+    <p>Use <strong>Foundry</strong>, <strong>Hardhat</strong>, or <strong>Truffle</strong> to test:</p>
+    <ul>
+        <li><strong>Unit tests</strong> (individual functions).</li>
+        <li><strong>Integration tests</strong> (contract interactions).</li>
+        <li><strong>Fuzz tests</strong> (randomized inputs).</li>
+    </ul>
+    
+    <p>Example Foundry test:</p>
+    <pre><code>function testWithdrawRevertsIfInsufficientBalance() public {
+    vm.prank(user);
+    vm.expectRevert("Insufficient balance");
+    myContract.withdraw(100 ether);
+}</code></pre>
+    
+    <hr>
+    
+    <h2>Final Thoughts</h2>
+    <p>Writing secure Solidity code requires discipline. Always:</p>
+    <ul>
+        <li>✔ Audit your contracts.</li>
+        <li>✔ Follow best practices.</li>
+        <li>✔ Assume external calls are malicious.</li>
+    </ul>
+    
+    <p>Need a security review? Consider <strong>OpenZeppelin Defender</strong> or <strong>Certora</strong> for formal verification.</p>
+    
+    <p><strong>What's your #1 Solidity tip? Share in the comments!</strong> 🚀</p>
+    
+    <div class="tags">
+        <span>#Solidity</span>
+        <span>#SmartContracts</span>
+        <span>#Blockchain</span>
+        <span>#DeFi</span>
+        <span>#Web3</span>
+        <span>#Security</span>
+        <span>#Ethereum</span>
+    </div>
 </body>
 </html>
