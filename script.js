@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggl
+    // Mobile menu toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu');
     const nav = document.querySelector('nav ul');
     
