@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = nav.classList.contains('show') ? 'hidden' : '';
     });
     
-    // Close menu when clicking outsid
+    // Close menu when clicking outside
     document.addEventListener('click', function(e) {
         if (!e.target.closest('nav') && window.innerWidth <= 768) {
             nav.classList.remove('show');
